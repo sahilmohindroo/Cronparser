@@ -12,17 +12,15 @@ import static org.junit.Assert.assertEquals;
 public class CronParserTest {
 
 
-
-
     @Test
     public void correct_range() {
         CronExpression exp = new CronExpression("0/15 1-3 1,15 * 1-5");
 
-        assertEquals(new ArrayList<>(List.of(0,15,30,45)), exp.getMinute());
-        assertEquals(new ArrayList<>(List.of(1,2,3)), exp.getHour());
-        assertEquals(new ArrayList<>(List.of(1,15)), exp.getDayOfMonth());
-        assertEquals(new ArrayList<>(List.of(1,2,3,4,5,6,7,8,9,10,11,12)), exp.getMonth());
-        assertEquals(new ArrayList<>(List.of(1,2,3,4,5)), exp.getDayOfWeek());
+        assertEquals(new ArrayList<>(List.of(0,15,30,45)), exp.getMinute().getValues());
+        assertEquals(new ArrayList<>(List.of(1,2,3)), exp.getHour().getValues());
+        assertEquals(new ArrayList<>(List.of(1,15)), exp.getDayOfMonth().getValues());
+        assertEquals(new ArrayList<>(List.of(1,2,3,4,5,6,7,8,9,10,11,12)), exp.getMonth().getValues());
+        assertEquals(new ArrayList<>(List.of(1,2,3,4,5)), exp.getDayOfWeek().getValues());
 
     }
 
